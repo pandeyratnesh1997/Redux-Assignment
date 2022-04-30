@@ -4,7 +4,7 @@ export class Store {
         this.state  = state;
         this.reducer = reducer;
     }
-    getState(){
+    getState(x){
         return this.state;
     }
     dispatch(action){

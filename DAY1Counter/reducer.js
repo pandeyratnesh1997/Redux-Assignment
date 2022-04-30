@@ -9,7 +9,7 @@ export let reducer = (state,action)=>{
         case "DECREMENT" :{
             return {
                 ...state, 
-                count : state.count++,
+                count : state.count--,
              }   
         }
         default:{

@@ -1,5 +1,5 @@
-import { reducer } from '/reducer.js';
-import {Store} from '/Store.js'
+import { reducer } from '/DAY1Counter/reducer.js';
+import {Store} from '/DAY1Counter/Store.js'
 let value = 0;
 const store = new Store(reducer,{
     count:10,
