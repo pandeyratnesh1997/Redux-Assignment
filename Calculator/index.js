@@ -1,10 +1,9 @@
 import {Store} from '/Calculator/Store.js'
 import {reducer} from '/Calculator/reducer.js'
-let x = document.getElementById("value").value;
-x = Number(x);
-console.log(x);
+
+
 let store = new Store(reducer,{count: 0,  add:0})
-console.log(store)
+// console.log(store)
 let counter = document.getElementById("counter");
 let inc = document.getElementById("increment");
 let dec = document.getElementById("decrement");
@@ -13,21 +12,44 @@ let multiply = document.getElementById("multiply");
 let substract = document.getElementById("substract");
 let divide = document.getElementById("divide");
 
+
 counter.innerText = store.getState().count;
 
 
-add.addEventListener("click",()=>{
-    store.dispatch({type:"ADD"});
-    counter.innerText = store.getState(x).add;
-})
+
 inc.addEventListener("click",()=>{
     store.dispatch({type:"INCREMENT"});
     counter.innerText = store.getState().count;
 });
 
 dec.addEventListener("click",()=>{
-    store.dispatch({type:"DECREMENT",payload:{x}});
+    store.dispatch({type:"DECREMENT"});
     counter.innerText = store.getState().count;
 });
+add.addEventListener("click",()=>{
+    let x = document.getElementById("typvalue").value ;
+    x = +x;
+    store.dispatch({type:"ADD", payload : x});
+    counter.innerText = store.getState().count;
+});
+
+substract.addEventListener("click",()=>{
+    let x = document.getElementById("typvalue").value ;
+    x = +x;
+    store.dispatch({type:"SUBSTRACT", payload : x});
+    counter.innerText = store.getState().count;
+})
+multiply.addEventListener("click",()=>{
+    let x = document.getElementById("typvalue").value ;
+    x = +x;
+    store.dispatch({type:"MULTIPLY", payload : x});
+    counter.innerText = store.getState().count;
+})
+divide.addEventListener("click",()=>{
+    let x = document.getElementById("typvalue").value ;
+    x = +x;
+    store.dispatch({type:"DIVIDE", payload : x});
+    counter.innerText = store.getState().count;
+})
 
 
